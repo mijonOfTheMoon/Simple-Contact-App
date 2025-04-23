@@ -1,5 +1,6 @@
 package com.example.contactapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         refreshContacts();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void refreshContacts() {
         crudHelper.open();
         ArrayList<Contact> list = crudHelper.fetchAllUsers();

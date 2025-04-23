@@ -70,20 +70,18 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
                 form.putExtra("email", emailTextView.getText().toString());
                 context.startActivity(form);
             });
-            deleteButton.setOnClickListener(v -> {
-                new AlertDialog.Builder(context)
-                        .setTitle("Konfirmasi")
+            deleteButton.setOnClickListener(v -> new AlertDialog.Builder(context)
+                    .setTitle("Konfirmasi")
 
-                        .setMessage("Apakah kamu yakin ingin menghapus kontak ini?")
-                        .setPositiveButton("Ya", (dialog, which) -> {
-                            crudHelper.open();
-                            crudHelper.delete(phoneTextView.getText().toString());
-                            crudHelper.close();
-                            mainActivity.refreshContacts();
-                        })
-                        .setNegativeButton("Tidak", null)
-                        .show();
-            });
+                    .setMessage("Apakah kamu yakin ingin menghapus kontak ini?")
+                    .setPositiveButton("Ya", (dialog, which) -> {
+                        crudHelper.open();
+                        crudHelper.delete(phoneTextView.getText().toString());
+                        crudHelper.close();
+                        mainActivity.refreshContacts();
+                    })
+                    .setNegativeButton("Tidak", null)
+                    .show());
         }
     }
 }

@@ -54,9 +54,9 @@ public class FormActivity extends AppCompatActivity {
             }
             try {
                 crudHelper.open();
-                long result = crudHelper.insertOrUpdate(name, email, phone, originalPhone);
+                crudHelper.insertOrUpdate(name, email, phone, originalPhone);
                 crudHelper.close();
-                Toast.makeText(this, "Data tersimpan: " + result, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Kontak berhasil tersimpan", Toast.LENGTH_SHORT).show();
                 finish();
             } catch (Exception e) {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();

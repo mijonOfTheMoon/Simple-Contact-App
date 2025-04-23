@@ -13,16 +13,15 @@ public class CRUDHelper {
         this.dbHelper = dbHelper;
     }
 
-    public CRUDHelper open() {
+    public void open() {
         database = dbHelper.getWritableDatabase();
-        return this;
     }
 
     public void close() {
         dbHelper.close();
     }
 
-    public long insertOrUpdate(String name, String email, String newPhone, String oldPhone) {
+    public void insertOrUpdate(String name, String email, String newPhone, String oldPhone) {
         ContentValues cv = new ContentValues();
         cv.put(DatabaseContract.UserTable.COLUMN_NAME_NAME, name);
         cv.put(DatabaseContract.UserTable.COLUMN_NAME_EMAIL, email);
@@ -35,17 +34,15 @@ public class CRUDHelper {
                     DatabaseContract.UserTable.COLUMN_NAME_PHONE + " = ?",
                     new String[]{ oldPhone }
             );
-            if (updated > 0) {
-                return updated;
-            } else {
-                return database.insert(
+            if (updated <= 0) {
+                database.insert(
                         DatabaseContract.UserTable.TABLE_NAME,
                         null,
                         cv
                 );
             }
         } else {
-            return database.insertWithOnConflict(
+            database.insertWithOnConflict(
                     DatabaseContract.UserTable.TABLE_NAME,
                     null,
                     cv,
@@ -54,8 +51,8 @@ public class CRUDHelper {
         }
     }
 
-    public int delete(String phone) {
-        return database.delete(
+    public void delete(String phone) {
+        database.delete(
                 DatabaseContract.UserTable.TABLE_NAME,
                 DatabaseContract.UserTable.COLUMN_NAME_PHONE + " = ?",
                 new String[]{phone}
