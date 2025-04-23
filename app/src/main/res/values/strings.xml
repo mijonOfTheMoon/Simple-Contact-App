@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Contact App</string>
+    <string name="dummy_name">Dummy Name</string>
+    <string name="dummy_gmail_com">dummy@gmail.com</string>
+    <string name="_081726351731">081726351731</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="nama">Nama</string>
+    <string name="telepon">Telepon</string>
+    <string name="edit">Ubah</string>
+    <string name="delete">Hapus</string>
+    <string name="add_new_button">Add New Button</string>
+    <string name="email">Email</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="konfirmasi">Konfirmasi</string>
+    <string name="batal">Batal</string>
+</resources>
